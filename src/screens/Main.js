@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
     elevation: 1,
     borderRadius: 5,
   },
-  //set vị trí One Một
+  //set vị trí One Một trong 1 view
   containerText: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
   },
-  //set khung viền nút
+  //set vị trí nút nhấn trong 1 view
   containerTouchable: {
     marginTop: 7,
     flexDirection: 'row',
