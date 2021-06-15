@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
-    borderRadius: 3,
+    borderRadius: 5,
     marginLeft: 5,
     height: 40,
     fontSize: 15,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   TouchSearch: {
     padding: 10,
     backgroundColor: 'green',
-    borderRadius: 10,
+    borderRadius: 100,
   },
   textStyle1: {color: 'black', fontSize: 25, fontWeight: 'bold'},
   textStyle2: {fontSize: 15, fontWeight: '100', color: 'gray', paddingLeft: 5},

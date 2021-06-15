@@ -5,6 +5,9 @@ import Main from './src/screens/Main';
 import Box from './src/components/Box';
 import Test from './src/components/Test'
 import Test1 from './src/components/Test1'
+import Form from './src/components/Form'
+import Form1 from './src/components/Form1'
+
 export default class App extends Component {
   render() {
     return (
@@ -12,7 +15,9 @@ export default class App extends Component {
         {/* <Main /> */}
         {/* <Box /> */}
         {/* <Test /> */}
-        <Test1 />
+        {/* <Test1 /> */}
+        {/* <Form /> */}
+        <Form1 />
       </SafeAreaView>
     );
   }
