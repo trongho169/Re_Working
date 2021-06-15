@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 import {
   Text,
@@ -25,20 +26,19 @@ export default class Form1 extends Component {
   renderForm = () => {
     if (this.state.shouldShowForm) {
       return (
-        <SafeAreaView style={styles.container}>
-          <View style={styles.container1}>
-            <Text style={styles.textStyle1}>Dự báo thời tiết</Text>
-          </View>
-          <View style={styles.container2}>
-            <View style={styles.containerTextInput}>
-              <TextInput placeholder="Nhập tên huyện" style={styles.textInput} />
-            </View>
-            <View style={styles.containerTouchSearch}>
+        <SafeAreaView style={styles.container3}>
+          <View style={styles.container4}>
+            <View style={styles.containerTouchBack}>
               <TouchableOpacity
                 onPress={this.toggleForm}
-                style={styles.TouchSearch}>
-                <Text style={styles.textStyleTouch}>Back</Text>
+                style={styles.TouchBack}>
+                <Text style={styles.textStyleBack}>Trở về</Text>
               </TouchableOpacity>
+            </View>
+            <View style={styles.container5}>
+              <View style={styles.containerTextInput}>
+                <Text style={styles.textStyle3}>Tỉnh:</Text>
+              </View>
             </View>
           </View>
         </SafeAreaView>
@@ -57,7 +57,7 @@ export default class Form1 extends Component {
               <TouchableOpacity
                 onPress={this.toggleForm}
                 style={styles.TouchSearch}>
-                <Text style={styles.textStyleTouch}>Tìm</Text>
+                <Text style={styles.textStyleSearch}>Tìm</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -71,9 +71,21 @@ export default class Form1 extends Component {
   }
 }
 const styles = StyleSheet.create({
+  container3: {flex: 1, flexDirection: 'column', backgroundColor: 'yellow'},
+  container4: {flex: 1, flexDirection: 'column'},
+  container5: {
+    width: '80%',
+    justifyContent: 'flex-start',
+    marginTop: 5,
+  },
   container: {flex: 1, flexDirection: 'column', backgroundColor: 'pink'},
   container1: {flex: 0.1, justifyContent: 'center', alignItems: 'center'},
   container2: {flex: 0.08, flexDirection: 'row', justifyContent: 'center'},
+  containerTouchBack: {
+    width: '20%',
+    justifyContent: 'flex-start',
+    marginTop: 2,
+  },
   containerTouchSearch: {
     width: '20%',
     alignItems: 'center',
@@ -100,7 +112,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     borderRadius: 100,
   },
+  TouchBack: {
+    padding: 5,
+    backgroundColor: 'gray',
+    borderRadius: 100,
+    alignItems: 'center',
+  },
   textStyle1: {color: 'black', fontSize: 25, fontWeight: 'bold'},
   textStyle2: {fontSize: 15, fontWeight: '100', color: 'gray', paddingLeft: 5},
-  textStyleTouch: {fontSize: 15, fontWeight: '900', color: 'black'},
+  textStyleSearch: {fontSize: 15, fontWeight: '500', color: 'black'},
+  textStyleBack: {fontSize: 15, fontWeight: '500', color: 'black'},
+  textStyle3: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingLeft: 5,
+  },
 });
