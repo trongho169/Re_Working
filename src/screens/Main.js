@@ -83,12 +83,12 @@ const styles = StyleSheet.create({
   },
   //set khung bao quanh một View
   containerWord: {
-    marginTop: '4%',
+    marginTop: '5%',
     justifyContent: 'center',
     height: '17%',
     flexDirection: 'column',
     backgroundColor: 'gainsboro',
-    elevation: 1,
+    elevation: 5,
     borderRadius: 5,
   },
   //set vị trí One Một trong 1 view
