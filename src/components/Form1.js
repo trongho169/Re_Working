@@ -12,6 +12,7 @@ import {
   TextInput,
 } from 'react-native';
 export default class Form1 extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -24,6 +25,7 @@ export default class Form1 extends Component {
     this.setState({shouldShowForm: !this.state.shouldShowForm});
   };
   renderForm = () => {
+    const word = {back: '<Trở về' };
     if (this.state.shouldShowForm) {
       return (
         <SafeAreaView style={styles.container3}>
@@ -32,13 +34,11 @@ export default class Form1 extends Component {
               <TouchableOpacity
                 onPress={this.toggleForm}
                 style={styles.TouchBack}>
-                <Text style={styles.textStyleBack}>Trở về</Text>
+                <Text style={styles.textStyleBack}>{word.back}</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.container5}>
-              <View style={styles.containerTextInput}>
-                <Text style={styles.textStyle3}>Tỉnh:</Text>
-              </View>
+            <View style={styles.containerTextTinh}>
+                <Text style={styles.textStyleTinh}>Tỉnh:</Text>
             </View>
           </View>
         </SafeAreaView>
@@ -46,12 +46,9 @@ export default class Form1 extends Component {
     } else {
       return (
         <SafeAreaView style={styles.container}>
-          <View style={styles.container1}>
-            <Text style={styles.textStyle1}>Dự báo thời tiết</Text>
-          </View>
           <View style={styles.container2}>
             <View style={styles.containerTextInput}>
-              <TextInput placeholder="Nhập tên tỉnh" style={styles.textInput} />
+              <TextInput placeholder= "Nhập tên tnh" style={styles.textInput} />
             </View>
             <View style={styles.containerTouchSearch}>
               <TouchableOpacity
@@ -71,33 +68,47 @@ export default class Form1 extends Component {
   }
 }
 const styles = StyleSheet.create({
+  //// Screen 2
   container3: {flex: 1, flexDirection: 'column', backgroundColor: 'yellow'},
-  container4: {flex: 1, flexDirection: 'column'},
-  container5: {
-    width: '80%',
-    justifyContent: 'flex-start',
+  container4: {flex: 0.1, flexDirection: 'column'},
+  containerTextTinh: {
+    flex: 0.5,
+    justifyContent: 'center',
     marginTop: 5,
   },
-  container: {flex: 1, flexDirection: 'column', backgroundColor: 'pink'},
-  container1: {flex: 0.1, justifyContent: 'center', alignItems: 'center'},
-  container2: {flex: 0.08, flexDirection: 'row', justifyContent: 'center'},
+  textStyleTinh: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: '700',
+    paddingLeft: 5,
+  },
   containerTouchBack: {
-    width: '20%',
-    justifyContent: 'flex-start',
-    marginTop: 2,
+    flex: 0.5,
+    flexDirection:'row',
+    
   },
-  containerTouchSearch: {
-    width: '20%',
+  TouchBack: {
+    flex: 0.2,
+    padding: 2,
+    backgroundColor: 'gray',
+    borderRadius: 50,
     alignItems: 'center',
-    marginTop: 2,
+    justifyContent: 'center',
+    marginLeft: 3,
+    marginTop: 3,
   },
-  containerText: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+  textStyleBack: {fontSize: 15, fontWeight: '500', color: 'black'},
+  //// Screen 1
+  container: {flex: 1, flexDirection: 'column', backgroundColor: 'pink'},
+  container2: {flex: 0.1, flexDirection: 'row', justifyContent: 'center'},
+  containerTouchSearch: {
+    flex: 0.2,
+    alignItems: 'center',
+    marginTop: 5,
   },
   containerTextInput: {
-    width: '80%',
-    marginTop: 2,
+    flex : 0.8,
+    marginTop: 5,
   },
   textInput: {
     borderWidth: 1,
@@ -112,20 +123,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     borderRadius: 100,
   },
-  TouchBack: {
-    padding: 5,
-    backgroundColor: 'gray',
-    borderRadius: 100,
-    alignItems: 'center',
-  },
-  textStyle1: {color: 'black', fontSize: 25, fontWeight: 'bold'},
-  textStyle2: {fontSize: 15, fontWeight: '100', color: 'gray', paddingLeft: 5},
   textStyleSearch: {fontSize: 15, fontWeight: '500', color: 'black'},
-  textStyleBack: {fontSize: 15, fontWeight: '500', color: 'black'},
-  textStyle3: {
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingLeft: 5,
-  },
 });
