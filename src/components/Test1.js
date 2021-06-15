@@ -27,7 +27,8 @@ export default class Test1 extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </SafeAreaView>    );
+      </SafeAreaView>    
+    );
   }
 }
 const styles = StyleSheet.create({
@@ -38,7 +39,6 @@ const styles = StyleSheet.create({
     width: '20%',
     alignItems: 'center',
     marginTop: 2,
-    marginRight: 3,
   },
   containerTextInput: {
     width: '80%',
@@ -46,11 +46,12 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
+    borderRadius: 3,
+    marginLeft: 5,
     height: 40,
     fontSize: 15,
     paddingHorizontal: 5,
   },
-
   TouchSearch: {
     padding: 10,
     backgroundColor: 'green',
