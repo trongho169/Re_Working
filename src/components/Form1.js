@@ -25,11 +25,23 @@ export default class Form1 extends Component {
   renderForm = () => {
     if (this.state.shouldShowForm) {
       return (
-        <View>
-          <View style={styles.containerText}>
-            <Text style={styles.textStyle1}> A</Text>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.container1}>
+            <Text style={styles.textStyle1}>Dự báo thời tiết</Text>
           </View>
-        </View>
+          <View style={styles.container2}>
+            <View style={styles.containerTextInput}>
+              <TextInput placeholder="Nhập tên huyện" style={styles.textInput} />
+            </View>
+            <View style={styles.containerTouchSearch}>
+              <TouchableOpacity
+                onPress={this.toggleForm}
+                style={styles.TouchSearch}>
+                <Text style={styles.textStyleTouch}>Back</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </SafeAreaView>
       );
     } else {
       return (
