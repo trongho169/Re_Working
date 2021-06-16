@@ -15,7 +15,6 @@ export default class TextInput1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      words: [{vn:''}],
       shouldShowForm: false,
       count:0,
       txtVn: '',

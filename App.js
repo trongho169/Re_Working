@@ -20,8 +20,8 @@ export default class App extends Component {
         {/* <Test1 /> */}
         {/* <Form /> */}
         {/* <Form1 /> */}
-        {/* <TextInput1 /> */}
-        <Option />
+        <TextInput1 />
+        {/* <Option /> */}
       </SafeAreaView>
     );
   }
