@@ -108,9 +108,9 @@ const styles = StyleSheet.create({
   //// Screen 2
   container3: {flex: 1, flexDirection: 'column', backgroundColor: '#FFA57B'},
   container5: {flex: 1, flexDirection: 'column', backgroundColor: 'rgb(65, 151, 172)'},
-  container4: {flex: 0.1, flexDirection: 'column'},
+  container4: {flex: 0.2, flexDirection: 'column'},
   containerTextTinh: {
-    flex: 0.5,
+    flex: 0.7,
     justifyContent: 'center',
     marginTop: 5,
   },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
   },
   containerTouchBack: {
-    flex: 0.5,
+    flex: 0.3,
     flexDirection:'row',
     justifyContent: 'space-between',
   },
