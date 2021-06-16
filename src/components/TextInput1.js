@@ -23,12 +23,18 @@ export default class TextInput1 extends Component {
   }
 //// change state button
   toggleForm = () => {
+    const {txtVn} = this.state;
+    if (txtVn.length <= 0) {
+      alert('Không có thông tin!');
+      return;
+    }else{
     this.setState({shouldShowForm: !this.state.shouldShowForm,
     count: this.state.count = 1});
-    }
+    }};
   toggleFormBack = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
     count: this.state.count = 0});
+    this.state.txtVn = '';
     }
   toggleFormBack1 = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
@@ -39,22 +45,22 @@ export default class TextInput1 extends Component {
     count: this.state.count = 2});
     }
 /////
-    addText = () => {
-      const {txtVn} = this.state;
-      if (txtVn.length <= 0) {
-        alert('Không có thông tin!');
-        return;
-      }
-      const newWord = {
-        vn: txtVn,
-      };
-      const newWords = this.state.words.map((word) => {
-        return {...word};
-      });
-      newWords.push(newWord);
-      this.txtVnRef.clear();
-      this.setState({words: newWords, txtVn: ''});
-    };
+    // addText = () => {
+    //   const {txtVn} = this.state;
+    //   if (txtVn.length <= 0) {
+    //     alert('Không có thông tin!');
+    //     return;
+    //   }
+    //   const newWord = {
+    //     vn: txtVn,
+    //   };
+    //   const newWords = this.state.words.map((word) => {
+    //     return {...word};
+    //   });
+    //   newWords.push(newWord);
+    //   this.txtVnRef.clear();
+    //   this.setState({words: newWords, txtVn: ''});
+    // };
 
     renderForm = () => {
       const word = {back: '<Trở về',
@@ -105,17 +111,16 @@ export default class TextInput1 extends Component {
             <View style={styles.container2}>
               <View style={styles.containerTextInput}>
                 <TextInput 
-//////text input
+//////change text input
                 ref={(refs) => (this.txtVnRef = refs)}
                 onChangeText={(text) => {
                   this.state.txtVn = text;
                 }}
-//////
                 placeholder= "Nhập tên tỉnh" style={styles.textInput} />
               </View>
               <View style={styles.containerTouchSearch}>
                 <TouchableOpacity
-                  onPress={this.addText}
+                  onPress={this.toggleForm}
                   style={styles.TouchSearch}>
                   <Text style={styles.textStyleSearch}>Tìm</Text>
                 </TouchableOpacity>
