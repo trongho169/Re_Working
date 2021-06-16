@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   containerWord: {
     marginTop: '2%',
     justifyContent: 'center',
-    height: '13%',
+    height: '15%',
     flexDirection: 'column',
     backgroundColor: 'gainsboro',
     elevation: 5,

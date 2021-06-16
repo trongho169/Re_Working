@@ -15,11 +15,13 @@ export default class TextInput1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      words: [{vn:''}],
       shouldShowForm: false,
       count:0,
       txtVn: '',
     };
   }
+//// change state button
   toggleForm = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
     count: this.state.count = 1});
@@ -28,20 +30,38 @@ export default class TextInput1 extends Component {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
     count: this.state.count = 0});
     }
-    toggleFormBack1 = () => {
-      this.setState({shouldShowForm: !this.state.shouldShowForm,
-      count: this.state.count = 1});
+  toggleFormBack1 = () => {
+    this.setState({shouldShowForm: !this.state.shouldShowForm,
+    count: this.state.count = 1});
       }
   toggleFormAward = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
     count: this.state.count = 2});
     }
+/////
+    addText = () => {
+      const {txtVn} = this.state;
+      if (txtVn.length <= 0) {
+        alert('Không có thông tin!');
+        return;
+      }
+      const newWord = {
+        vn: txtVn,
+      };
+      const newWords = this.state.words.map((word) => {
+        return {...word};
+      });
+      newWords.push(newWord);
+      this.txtVnRef.clear();
+      this.setState({words: newWords, txtVn: ''});
+    };
+
     renderForm = () => {
       const word = {back: '<Trở về',
                     award: 'Tiếp>'};
       if (this.state.count==2) {
         return (
-          <SafeAreaView style={styles.container3}>
+          <View style={styles.container3}>
             <View style={styles.container4}>
               <View style={styles.containerTouchBack}>
                 <TouchableOpacity
@@ -54,11 +74,11 @@ export default class TextInput1 extends Component {
                   <Text style={styles.textStyleTinh}>Thành Phố:</Text>
               </View>
             </View>
-          </SafeAreaView>
+          </View>
         );
       }else if (this.state.count==1) {
         return (
-          <SafeAreaView style={styles.container5}>
+          <View style={styles.container5}>
             <View style={styles.container4}>
               <View style={styles.containerTouchBack}>
                 <TouchableOpacity
@@ -77,33 +97,40 @@ export default class TextInput1 extends Component {
                 <Text style={styles.textStyleTinh}>Tỉnh:</Text>
               </View>
             </View>
-          </SafeAreaView>
+          </View>
         );
       }else {
         return (
-          <SafeAreaView style={styles.container}>
+          <View style={styles.container}>
             <View style={styles.container2}>
               <View style={styles.containerTextInput}>
-                <TextInput placeholder= "Nhập tên tỉnh" style={styles.textInput} />
+                <TextInput 
+//////text input
+                ref={(refs) => (this.txtVnRef = refs)}
+                onChangeText={(text) => {
+                  this.state.txtVn = text;
+                }}
+//////
+                placeholder= "Nhập tên tỉnh" style={styles.textInput} />
               </View>
               <View style={styles.containerTouchSearch}>
                 <TouchableOpacity
-                  onPress={this.toggleForm}
+                  onPress={this.addText}
                   style={styles.TouchSearch}>
                   <Text style={styles.textStyleSearch}>Tìm</Text>
                 </TouchableOpacity>
               </View>
             </View>
-          </SafeAreaView>
+          </View>
         );
       }
     };
-
+///// run main
     render() {
-      return this.renderForm();
+      return this.renderForm(); 
     }
 };
-
+//// StyleSheet
 const styles = StyleSheet.create({
   //// Screen 2
   container3: {flex: 1, flexDirection: 'column', backgroundColor: '#FFA57B'},
