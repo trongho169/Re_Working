@@ -48,7 +48,7 @@ export default class Form1 extends Component {
         <SafeAreaView style={styles.container}>
           <View style={styles.container2}>
             <View style={styles.containerTextInput}>
-              <TextInput placeholder= "Nhập tên tnh" style={styles.textInput} />
+              <TextInput placeholder= "Nhập tên tỉnh" style={styles.textInput} />
             </View>
             <View style={styles.containerTouchSearch}>
               <TouchableOpacity
