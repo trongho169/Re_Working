@@ -76,8 +76,8 @@ export default class TextInput1 extends Component {
                   <Text style={styles.textStyleBack}>{word.back}</Text>
                 </TouchableOpacity>
               </View>
-              <View style={styles.containerTextTinh}>
-                  <Text style={styles.textStyleTinh}>Thành Phố:</Text>
+              <View style={styles.containerTextTP}>
+                  <Text style={styles.textStyleTP}>Thành Phố:</Text>
               </View>
             </View>
           </View>
@@ -98,9 +98,13 @@ export default class TextInput1 extends Component {
                   <Text style={styles.textStyleAward}>{word.award}</Text>
                 </TouchableOpacity>
               </View>
-
               <View style={styles.containerTextTinh}>
-                <Text style={styles.textStyleTinh}>Tỉnh:</Text>
+                <View style={styles.containerTinh}>
+                  <Text style={styles.textStyleTinh}>Tỉnh: </Text>
+                </View>
+                <View style={styles.containerTextInput1}>
+                  <Text style={styles.textStyleTextInput}>{this.state.txtVn}</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -143,10 +147,36 @@ const styles = StyleSheet.create({
   container4: {flex: 0.2, flexDirection: 'column'},
   containerTextTinh: {
     flex: 0.7,
+    flexDirection: 'row',
+  },
+  containerTinh: {
+    flex: 0.2,
     justifyContent: 'center',
     marginTop: 5,
   },
   textStyleTinh: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: '700',
+    paddingLeft: 5,
+  },
+  containerTextInput1: {
+    flex: 0.8,
+    justifyContent: 'center',
+    marginTop: 5,
+  },
+  textStyleTextInput: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: '700',
+    paddingLeft: 5,
+  },
+  containerTextTP: {
+    flex: 0.7,
+    justifyContent: 'center',
+    marginTop: 5,
+  },
+  textStyleTP: {
     color: 'black',
     fontSize: 20,
     fontWeight: '700',
