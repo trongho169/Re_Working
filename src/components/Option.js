@@ -8,8 +8,9 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 
-export default class Test2 extends Component {
+export default class Option extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -139,10 +140,31 @@ export default class Test2 extends Component {
       );
     }
   };
+  renderFilter = () => {
+    return (
+      <View style={styles.containerPickerStyle}>
+        <RNPickerSelect
+        style= {{inputAndroid: {color:'black'}}}
+          onValueChange={(value) => {
+            this.value = value;
+          }}
+          onDonePress={() => {
+            alert(this.value);
+          }}
+          items={[
+            {label: 'Show All', value: 'Show_All'},
+            {label: 'Show Forgot', value: 'Show_Forgot'},
+            {label: 'Show Memorized', value: 'Show_Memorized'},
+          ]}
+        />
+      </View>
+    );
+  };
   render() {
     return (
       <SafeAreaView style={styles.container}>
         {this.renderForm()}
+        {this.renderFilter()}
         {this.state.words.map((word) => {
           return this.renderWord(word);
         })}
@@ -161,7 +183,7 @@ const styles = StyleSheet.create({
   containerWord: {
     marginTop: '2%',
     justifyContent: 'center',
-    height: '15%',
+    height: '13%',
     flexDirection: 'column',
     backgroundColor: 'gainsboro',
     elevation: 5,

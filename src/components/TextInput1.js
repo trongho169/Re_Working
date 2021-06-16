@@ -45,23 +45,6 @@ export default class TextInput1 extends Component {
     count: this.state.count = 2});
     }
 /////
-    // addText = () => {
-    //   const {txtVn} = this.state;
-    //   if (txtVn.length <= 0) {
-    //     alert('Không có thông tin!');
-    //     return;
-    //   }
-    //   const newWord = {
-    //     vn: txtVn,
-    //   };
-    //   const newWords = this.state.words.map((word) => {
-    //     return {...word};
-    //   });
-    //   newWords.push(newWord);
-    //   this.txtVnRef.clear();
-    //   this.setState({words: newWords, txtVn: ''});
-    // };
-
     renderForm = () => {
       const word = {back: '<Trở về',
                     award: 'Tiếp>'};

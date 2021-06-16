@@ -8,7 +8,7 @@ import Test1 from './src/components/Test1'
 import Form from './src/components/Form'
 import Form1 from './src/components/Form1'
 import TextInput1 from './src/components/TextInput1'
-import Test2 from './src/components/Test2'
+import Option from './src/components/Option'
 
 export default class App extends Component {
   render() {
@@ -20,8 +20,8 @@ export default class App extends Component {
         {/* <Test1 /> */}
         {/* <Form /> */}
         {/* <Form1 /> */}
-        <TextInput1 />
-        {/* <Test2 /> */}
+        {/* <TextInput1 /> */}
+        <Option />
       </SafeAreaView>
     );
   }
