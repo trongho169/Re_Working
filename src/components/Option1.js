@@ -116,6 +116,7 @@ export default class Option1 extends Component {
             <View style={{ flex: 0.1}}>
                <View style={styles.containerPickerStyle}>
                 <RNPickerSelect
+                  style={{inputAndroid: {color: 'black'}}}
                   onValueChange={(value) => {
                   this.value = value;
                   }}
