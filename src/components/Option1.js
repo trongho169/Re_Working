@@ -19,6 +19,7 @@ export default class Option1 extends Component {
       shouldShowForm: false,
       count:0,
       txtVn: '',
+      filterMode: null,
     };
   }
 //// change state button
@@ -48,6 +49,7 @@ export default class Option1 extends Component {
     renderForm = () => {
       const word = {back: '<Trở về',
                     award: 'Tiếp>'};
+      let selectValue = null;
       if (this.state.count==2) {
         return (
           <View style={styles.container3}>
@@ -113,7 +115,7 @@ export default class Option1 extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{ flex: 0.1}}>
+            <View style={{ flex: 0.15,justifyContent: 'center'}}>
                <View style={styles.containerPickerStyle}>
                 <RNPickerSelect
                   style={{inputAndroid: {color: 'black'}}}
@@ -124,6 +126,15 @@ export default class Option1 extends Component {
                   onDonePress={() => {
                   alert(this.value);
                   }}
+                  // onValueChange={(value) => {
+                  //   if (Platform.OS === 'android') {
+                  //     this.setState({filterMode: value});
+                  //   }
+                  //   selectValue = value;
+                  // }}
+                  // onDonePress={() => {
+                  //   this.setState({filterMode: selectValue});
+                  // }}
                   items={[
                     {label: 'Hồ Chí Minh', value: 'hcm'},
                     {label: 'Hà Nội', value: 'hn'},
@@ -140,7 +151,7 @@ export default class Option1 extends Component {
     };
 ///// run main
     render() {
-      return this.renderForm(); 
+      return this.renderForm();
     }
 };
 //// StyleSheet
@@ -214,12 +225,13 @@ const styles = StyleSheet.create({
   },
   textStyleAward: {fontSize: 15, fontWeight: '500', color: 'black'},
   containerPickerStyle: {
+    height:50,
     borderWidth: 1,
     borderRadius: 5,
     borderColor: 'black',
     marginHorizontal: 5,
-    padding: 10,
-    marginTop:5,
+    // paddingBottom: 10,
+    // marginHorizontal:5,
   },
   //// Screen 1
   container: {flex: 1, flexDirection: 'column', backgroundColor: 'pink'},

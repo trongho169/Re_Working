@@ -10,6 +10,9 @@ import Form1 from './src/components/Form1'
 import TextInput1 from './src/components/TextInput1'
 import Option from './src/components/Option'
 import Option1 from './src/components/Option1'
+import Telephone from './src/components/Telephone'
+import Telephone1 from './src/components/Telephone1'
+import Api from './src/components/Api'
 
 export default class App extends Component {
   render() {
@@ -23,7 +26,10 @@ export default class App extends Component {
         {/* <Form1 /> */}
         {/* <TextInput1 /> */}
         {/* <Option /> */}
-        <Option1 />
+        {/* <Option1 /> */}
+        {/* <Telephone /> */}
+        {/* <Telephone1 /> */}
+        <Api />
       </SafeAreaView>
     );
   }
