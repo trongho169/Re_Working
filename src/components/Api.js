@@ -52,7 +52,7 @@ export default class Api extends Component {
                 <Text>{data.id}</Text>
                 <Text>{data.name}</Text>
                 <Text>{data.email}</Text>
-                <Text>{data.website}</Text>
+                {/* <Text>{data.website}</Text> */}
             </View>
         )
         return users;
@@ -69,25 +69,3 @@ export default class Api extends Component {
         )
     }
 }
-
-
-const request = require('request');
-const URL = 'http://api.openweathermap.org/data/2.5/weather?appid=86183a23377ed034aef7aad102f43d64&units=metric&q=Hanoi'
-request(URL,{json:true}, function (error, response, body) {
-    if (error) return console.log(error);
-    return console.log(body);
-});
-
-function getTimeCity(cityName){
-    return new Promise((resolve, reject) =>{
-        const request = require('request');
-        const URL = `http://api.openweathermap.org/data/2.5/weather?appid=86183a23377ed034aef7aad102f43d64&units=metric&q=${cityName}`; 
-        request(URL,{json:true}, function (error, response, body) {
-            if (error) return reject(error);
-            if (body.cod === '404') return reject(body.message)
-            return resolve(body.main.temp);
-        });
-    })
-     getTimeCity('Hanoi')
-     .then (temp => console.log(temp))
-     .catch(error => console.log(error))}
