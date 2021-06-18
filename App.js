@@ -11,7 +11,6 @@ import {Text, View, SafeAreaView,Navigator} from 'react-native';
 // import Option from './src/components/Option'
 // import Option1 from './src/components/Option1'
 import Api from './src/components/Api'
-import Api1 from './src/components/Api1'
 
 export default class App extends Component {
   render() {
@@ -26,8 +25,7 @@ export default class App extends Component {
         {/* <TextInput1 /> */}
         {/* <Option /> */}
         {/* <Option1 /> */}
-        {/* <Api /> */}
-        <Api1 />
+        <Api />
       </SafeAreaView>
     );
   }
