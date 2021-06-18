@@ -9,7 +9,7 @@ import {Text, View, SafeAreaView,Navigator} from 'react-native';
 // import Form1 from './src/components/Form1'
 // import TextInput1 from './src/components/TextInput1'
 // import Option from './src/components/Option'
-// import Option1 from './src/components/Option1'
+import Option1 from './src/components/Option1'
 import Api from './src/components/Api'
 
 export default class App extends Component {

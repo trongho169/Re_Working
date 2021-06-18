@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   TextInput,
+  ScrollView
 } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 export default class Option1 extends Component { 
@@ -150,8 +151,8 @@ export default class Option1 extends Component {
       }
     };
 ///// run main
-    render() {
-      return this.renderForm();
+    render() { 
+      return this.renderForm();     
     }
 };
 //// StyleSheet

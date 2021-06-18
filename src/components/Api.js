@@ -81,27 +81,47 @@ export default class Api1 extends Component {
         this.state = {
           dataSourceArray: [],
           dataSourceObject: {},
+          txt: 'Hanoi',
         };
       }
-    componentDidMount(){
-        return fetch('http://api.openweathermap.org/data/2.5/weather?appid=86183a23377ed034aef7aad102f43d64&units=metric&q=Hanoi')
-         .then((response) => response.json())
-         .then((responseJson) => {
-            this.setState({
-                dataSourceArray: responseJson.weather,
-                dataSourceObject: responseJson.main,
-            })
-          })
-        .catch((error) => {console.log(error)})
-    } 
+        // componentDidMount(){
+        //     return fetch('http://api.openweathermap.org/data/2.5/weather?appid=86183a23377ed034aef7aad102f43d64&units=metric&q=Hanoi')
+        //         .then((response) => response.json())
+        //         .then((responseJson) => {
+        //             this.setState({
+        //                 dataSourceArray: responseJson.weather,
+        //                 dataSourceObject: responseJson.main,
+        //             })
+        //         })
+        //         .catch((error) => {console.log(error)})
+        // }
+ //// compare city to access website get data   
+    compareCityName = (cityName) =>{
+            // if(cityName==='Hanoi'){
+                return fetch(`http://api.openweathermap.org/data/2.5/weather?appid=86183a23377ed034aef7aad102f43d64&units=metric&q=${cityName}`)
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    this.setState({
+                        dataSourceArray: responseJson.weather,
+                        dataSourceObject: responseJson.main,
+                    })
+                })
+                .catch((error) => {console.log(error)})
+        // }else{
+        //         alert ('City is not find!');
+        //     }
+    }
     render() {
+//// compare city to access website get data
+        const {txt} = this.state;
+        this.compareCityName(txt);
 ///// get array from api website to react native
             let dataSourceArray = this.state.dataSourceArray.map((data,key) => {
-                return <View key= {key} style={{flex:1,justifyContent: 'space-evenly',alignItems: 'center'}}>
-                           <Text>ID:  {data.id}</Text>
-                           <Text>Main: {data.main}</Text>
-                           <Text>Description: {data.description}</Text>
-                           <Text>Icon: {data.icon}</Text></View>})
+            return <View key= {key} style={{flex:1,justifyContent: 'space-evenly',alignItems: 'center'}}>
+                     <Text>ID:  {data.id}</Text>
+                     <Text>Main: {data.main}</Text>
+                     <Text>Description: {data.description}</Text>
+                     <Text>Icon: {data.icon}</Text></View>})
 ///// get object from api website to react native
             let {dataSourceObject} = this.state;
             return (
@@ -117,6 +137,5 @@ export default class Api1 extends Component {
                     </View>
                 </View>
             )
-
     }
 }
