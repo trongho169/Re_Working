@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   TextInput,
+  ScrollView
 } from 'react-native';
 export default class TextInput1 extends Component { 
   constructor(props) {
@@ -52,7 +53,6 @@ export default class TextInput1 extends Component {
       const image3 = { uri: "https://img.thuthuatphanmem.vn/uploads/2018/10/13/anh-dai-dien-dep-de-thuong-nhat_041803834.jpg" };
       if (this.state.count==2) {
         return (
-          <View style={{flex: 1,flexDirection:'column'}}>
             <ImageBackground source={image1} style={styles.image}>
               <View style={styles.container4}>
                 <View style={styles.containerTouchBack}>
@@ -67,11 +67,9 @@ export default class TextInput1 extends Component {
                 </View>
               </View>
             </ImageBackground>
-          </View>
         );
       }else if (this.state.count==1) {
         return (
-          <View style={{flex: 1,flexDirection:'column'}}>
             <ImageBackground source={image2} style={styles.image}>
               <View style={styles.container4}>
                 <View style={styles.containerTouchBack}>
@@ -96,11 +94,9 @@ export default class TextInput1 extends Component {
                 </View>
               </View>
             </ImageBackground>
-          </View>
         );
       }else {
         return (
-          <View style={{flex: 1,flexDirection:'column'}}>
             <ImageBackground source={image3} style={styles.image}>
               <View style={styles.container2}>
                 <View style={styles.containerTextInput}>
@@ -121,7 +117,6 @@ export default class TextInput1 extends Component {
                 </View>
               </View>
             </ImageBackground>
-          </View>
         );
       }
     };
