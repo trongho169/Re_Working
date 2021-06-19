@@ -28,90 +28,99 @@ export default class TextInput1 extends Component {
       return;
     }else{
     this.setState({shouldShowForm: !this.state.shouldShowForm,
-    count: this.state.count = 1});
+    count: this.state.count + 1});
     }};
   toggleFormBack = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
-    count: this.state.count = 0});
+    count: this.state.count - 1});
     this.state.txtVn = '';
     }
   toggleFormBack1 = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
-    count: this.state.count = 1});
+    count: this.state.count - 1});
       }
   toggleFormAward = () => {
     this.setState({shouldShowForm: !this.state.shouldShowForm,
-    count: this.state.count = 2});
+    count: this.state.count + 1});
     }
 /////
     renderForm = () => {
       const word = {back: '<Trở về',
                     award: 'Tiếp>'};
+      const image1 = { uri: "https://hedieuhanh.com/wp-content/uploads/2019/08/Avatar-dep-nhat-75_112148.jpg" };
+      const image2 = { uri: "https://pdp.edu.vn/wp-content/uploads/2021/05/hinh-anh-dai-dien-avt-anime-1.jpg" };
+      const image3 = { uri: "https://img.thuthuatphanmem.vn/uploads/2018/10/13/anh-dai-dien-dep-de-thuong-nhat_041803834.jpg" };
       if (this.state.count==2) {
         return (
-          <View style={styles.container3}>
-            <View style={styles.container4}>
-              <View style={styles.containerTouchBack}>
-                <TouchableOpacity
-                  onPress={this.toggleFormBack1}
-                  style={styles.TouchBack}>
-                  <Text style={styles.textStyleBack}>{word.back}</Text>
-                </TouchableOpacity>
+          <View style={{flex: 1,flexDirection:'column'}}>
+            <ImageBackground source={image1} style={styles.image}>
+              <View style={styles.container4}>
+                <View style={styles.containerTouchBack}>
+                  <TouchableOpacity
+                    onPress={this.toggleFormBack1}
+                    style={styles.TouchBack}>
+                    <Text style={styles.textStyleBack}>{word.back}</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.containerTextTP}>
+                    <Text style={styles.textStyleTP}>Thành Phố:</Text>
+                </View>
               </View>
-              <View style={styles.containerTextTP}>
-                  <Text style={styles.textStyleTP}>Thành Phố:</Text>
-              </View>
-            </View>
+            </ImageBackground>
           </View>
         );
       }else if (this.state.count==1) {
         return (
-          <View style={styles.container5}>
-            <View style={styles.container4}>
-              <View style={styles.containerTouchBack}>
-                <TouchableOpacity
-                  onPress={this.toggleFormBack}
-                  style={styles.TouchBack}>
-                  <Text style={styles.textStyleBack}>{word.back}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={this.toggleFormAward}
-                  style={styles.TouchAward}>
-                  <Text style={styles.textStyleAward}>{word.award}</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.containerTextTinh}>
-                <View style={styles.containerTinh}>
-                  <Text style={styles.textStyleTinh}>Tỉnh: </Text>
+          <View style={{flex: 1,flexDirection:'column'}}>
+            <ImageBackground source={image2} style={styles.image}>
+              <View style={styles.container4}>
+                <View style={styles.containerTouchBack}>
+                  <TouchableOpacity
+                    onPress={this.toggleFormBack}
+                    style={styles.TouchBack}>
+                    <Text style={styles.textStyleBack}>{word.back}</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={this.toggleFormAward}
+                    style={styles.TouchAward}>
+                    <Text style={styles.textStyleAward}>{word.award}</Text>
+                  </TouchableOpacity>
                 </View>
-                <View style={styles.containerTextInput1}>
-                  <Text style={styles.textStyleTextInput}>{this.state.txtVn}</Text>
+                <View style={styles.containerTextTinh}>
+                  <View style={styles.containerTinh}>
+                    <Text style={styles.textStyleTinh}>Tỉnh: </Text>
+                  </View>
+                  <View style={styles.containerTextInput1}>
+                    <Text style={styles.textStyleTextInput}>{this.state.txtVn}</Text>
+                  </View>
                 </View>
               </View>
-            </View>
+            </ImageBackground>
           </View>
         );
       }else {
         return (
-          <View style={styles.container}>
-            <View style={styles.container2}>
-              <View style={styles.containerTextInput}>
-                <TextInput 
-//////change text input
-                ref={(refs) => (this.txtVnRef = refs)}
-                onChangeText={(text) => {
-                  this.state.txtVn = text;
-                }}
-                placeholder= "Nhập tên tỉnh" style={styles.textInput} />
+          <View style={{flex: 1,flexDirection:'column'}}>
+            <ImageBackground source={image3} style={styles.image}>
+              <View style={styles.container2}>
+                <View style={styles.containerTextInput}>
+                  <TextInput 
+  //////change text input
+                  ref={(refs) => (this.txtVnRef = refs)}
+                  onChangeText={(text) => {
+                    this.state.txtVn = text;
+                  }}
+                  placeholder= "Nhập tên tỉnh" style={styles.textInput} />
+                </View>
+                <View style={styles.containerTouchSearch}>
+                  <TouchableOpacity
+                    onPress={this.toggleForm}
+                    style={styles.TouchSearch}>
+                    <Text style={styles.textStyleSearch}>Tìm</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <View style={styles.containerTouchSearch}>
-                <TouchableOpacity
-                  onPress={this.toggleForm}
-                  style={styles.TouchSearch}>
-                  <Text style={styles.textStyleSearch}>Tìm</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
+            </ImageBackground>
           </View>
         );
       }
@@ -123,10 +132,14 @@ export default class TextInput1 extends Component {
 };
 //// StyleSheet
 const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    flexDirection: 'column',
+    justifyContent: "flex-start"
+  },
   //// Screen 2
-  container3: {flex: 1, flexDirection: 'column', backgroundColor: '#FFA57B'},
-  container5: {flex: 1, flexDirection: 'column', backgroundColor: 'rgb(65, 151, 172)'},
-  container4: {flex: 0.2, flexDirection: 'column'},
+    container4: {flex: 0.2, flexDirection: 'column'},
   containerTextTinh: {
     flex: 0.7,
     flexDirection: 'row',
